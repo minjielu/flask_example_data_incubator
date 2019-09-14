@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename="images/icons/plot.ico") }}" />
+    {{ resources|safe }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/main.css") }}">
+  </head>
+  <body>
+    <div class="container-contact100">
+  		<div style="width:600px;padding:10px;! important" class="wrap-contact100">
+        <div id="myplot"></div>
+        <script>
+          var item = JSON.parse('{{ p|safe }}');
+          Bokeh.embed.embed_item(item, "myplot");
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
